@@ -2,7 +2,7 @@
 
 Based on the Unit 3 [Student App](https://github.com/AdaGold/student-app), this version has been modified to provide an example of how to use GitHub Copilot to generate and refactor code and tests.
 
-The [main](https://github.com/Ada-C21/student-app-with-copliot/tree/main) branch is the starting point for the Copilot example. The [Copilot](https://github.com/Ada-C21/student-app-with-copliot/tree/Copilot) branch contains the results of running through the implementation of the Student component, some refactors, and tests using Copilot.
+The [main](https://github.com/Ada-C21/student-app-with-copilot/tree/main) branch is the starting point for the Copilot example. The [copilot](https://github.com/Ada-C21/student-app-with-copilot/tree/copilot) branch contains the results of running through the implementation of the Student component, some refactors, and tests using Copilot.
 
 The major steps in the process are:
 - use a Copilot prompt to generate code for the Student component
