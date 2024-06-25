@@ -5,7 +5,7 @@ const StudentList = (props) => {
   const studentComponents = props.students.map((student, i) => {
     return (
       <li key={i}>
-        Student
+        <div className="Student">Student</div>
       </li>
     );
   });
