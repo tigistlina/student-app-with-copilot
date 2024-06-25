@@ -1,18 +1,11 @@
-import Student from './Student';
 import './StudentList.css';
 import PropTypes from 'prop-types';
 
 const StudentList = (props) => {
-  const studentComponents = props.students.map(student => {
+  const studentComponents = props.students.map((student, i) => {
     return (
-      <li key={student.id}>
-        <Student
-          id={student.id}
-          name={student.nameData}
-          email={student.emailData}
-          isPresent={student.isPresentData}
-          onPresenceToggle={props.onStudentPresenceToggle}
-        ></Student>
+      <li key={i}>
+        Student
       </li>
     );
   });
