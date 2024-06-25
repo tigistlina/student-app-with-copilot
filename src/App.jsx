@@ -1,29 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import StudentList from './components/StudentList';
 import ClassInfo from './components/ClassInfo';
 import NewStudentForm from './components/NewStudentForm';
+import PropTypes from 'prop-types';
 
-function App() {
-  const [studentData, setStudentData] = useState([
-    {
-      id: 1,
-      nameData: 'Ada',
-      emailData: 'ada@dev.org',
-      isPresentData: false,
-    },
-    {
-      id: 2,
-      nameData: 'Soo-ah',
-      emailData: 'sooah@dev.org',
-      isPresentData: false,
-    },
-    {
-      id: 3,
-      nameData: 'Chrissy',
-      emailData: 'chrissy@dev.org',
-      isPresentData: true,
-    },
-  ]);
+function App({ dataProvider }) {
+  const [studentData, setStudentData] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      let students = await dataProvider.getData();
+      setStudentData(students);
+    })();
+  }, [dataProvider]);
 
   const addStudentData = (newStudent) => {
     // Logic to generate the next valid student ID
@@ -75,5 +64,11 @@ function App() {
     </main>
   );
 }
+
+App.propTypes = {
+  dataProvider: PropTypes.shape({
+    getData: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default App;

@@ -11,7 +11,7 @@ const Student = (props) => {
   const nameColor = props.isPresent ? 'green' : 'red';
 
   return (
-    <div>
+    <div className="Student">
       <ul>
         <li className={nameColor}>Nickname: {props.name}</li>
         <li>Email: {props.email}</li>
