@@ -1,0 +1,7 @@
+.student__nickname--present {
+    color: green;
+}
+
+.student__nickname--absent {
+    color: red;
+}
