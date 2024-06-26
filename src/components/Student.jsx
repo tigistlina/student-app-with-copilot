@@ -1,32 +1,27 @@
-import { useState } from 'react';
+
 import PropTypes from 'prop-types';
-import './Student.css'; 
+import './Student.css';
 
-const Student = ({ name, initialIsPresent, id, email }) => { // Assuming id and email are part of the details
-  const [isPresent, setIsPresent] = useState(initialIsPresent);
-
-  const handleToggle = () => {
-    setIsPresent(!isPresent);
+const Student = ({ id, email, name, isPresent, onPresenceToggle }) => {
+  const handleTogglePresence = () => {
+    onPresenceToggle(id);
   };
 
-  // Determine the class based on `isPresent`
-  const studentClass = isPresent ? 'Student-green' : 'Student-red';
-
   return (
-  <div>
-    <p className={studentClass}>Name: {name}</p> {/* Apply the class here */}
-    <p>ID: {id}</p> {/* Keep other details unchanged */}
-    <p>Email: {email}</p>
-    <button onClick={handleToggle}>Toggle Presence</button>
-  </div>
-);
+    <div className={`Student ${isPresent ? 'present' : 'absent'}`}  data-student-id={id}>
+      <div className={`nickname ${isPresent ? 'present' : 'absent'}`}>Nickname: <span>{name}</span></div>
+      <div>Email: {email}</div>
+      <button onClick={handleTogglePresence}>Toggle if {name} is present</button>
+    </div>
+  );
 };
 
 Student.propTypes = {
-  name: PropTypes.string.isRequired,
-  initialIsPresent: PropTypes.bool.isRequired,
   id: PropTypes.number.isRequired,
   email: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  isPresent: PropTypes.bool.isRequired,
+  onPresenceToggle: PropTypes.func.isRequired,
 };
 
 export default Student;
